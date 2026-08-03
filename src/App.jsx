@@ -1,23 +1,16 @@
 import { Routes, Route } from 'react-router-dom'
-
-function Home() {
-  return <div className="p-8 text-2xl text-stone-700">Home — coming soon</div>
-}
-
-function Quiz() {
-  return <div className="p-8 text-2xl text-stone-700">Quiz — coming soon</div>
-}
-
-function Affirmation() {
-  return <div className="p-8 text-2xl text-stone-700">Affirmation — coming soon</div>
-}
+import HomePage from './pages/HomePage'
+import QuizPage from './pages/QuizPage'
+import ResultsPage from './pages/ResultsPage'
+import AffirmationPage from './pages/AffirmationPage'
 
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/quiz" element={<Quiz />} />
-      <Route path="/affirmation" element={<Affirmation />} />
+      <Route path="/" element={<HomePage />} />
+      <Route path="/quiz" element={<QuizPage />} />
+      <Route path="/results" element={<ResultsPage />} />
+      <Route path="/affirmation" element={<AffirmationPage />} />
     </Routes>
   )
 }
