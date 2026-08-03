@@ -1,16 +1,49 @@
-# React + Vite
+# Affirmations Widget
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A personalized daily affirmations web app. Take a short quiz and get one affirmation per day chosen specifically for where you are in life — not random inspiration, but something that actually fits.
 
-Currently, two official plugins are available:
+## How it works
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. **Take the quiz** — 10 questions about which areas of life you're working on, how you feel, and what style of affirmation resonates with you.
+2. **Get your affirmation** — the app builds a profile from your answers and surfaces the best-matched affirmation for today.
+3. **Come back daily** — the affirmation rotates every day, always chosen from your personalized pool.
 
-## React Compiler
+No account needed. Everything is saved locally in your browser.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the Oxlint configuration
+- 10-question personalization quiz covering 8 life areas (career, relationships, health, money, confidence, mindfulness, creativity, purpose)
+- Scoring algorithm that matches affirmations to your profile by category, style, tone, and length
+- Date-seeded daily pick — the same affirmation shows all day, then rotates
+- Minimal, calm design with no clutter between you and your affirmation
+- iOS home screen widget via the free Scriptable app *(coming soon)*
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Tech stack
+
+- [React 19](https://react.dev/) + [Vite](https://vite.dev/)
+- [TailwindCSS v4](https://tailwindcss.com/)
+- [React Router v7](https://reactrouter.com/)
+- Plain JavaScript — no TypeScript
+- localStorage for persistence — no backend required
+
+## Running locally
+
+```bash
+npm install
+npm run dev
+```
+
+Then open [http://localhost:5173](http://localhost:5173).
+
+## Project structure
+
+```
+src/
+├── data/           # Affirmations dataset + quiz questions
+├── pages/          # Full-page route components
+├── components/     # Reusable UI components
+│   ├── Layout/     # Header, Footer
+│   ├── Quiz/       # Quiz progress bar, question renderer
+│   └── Affirmation/# Affirmation card
+└── utils/          # Matching algorithm, daily seed logic
+```
