@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import Header from './components/Layout/Header'
+import Footer from './components/Layout/Footer'
 import HomePage from './pages/HomePage'
 import QuizPage from './pages/QuizPage'
 import ResultsPage from './pages/ResultsPage'
@@ -17,6 +18,7 @@ export default function App() {
           <Route path="/affirmation" element={<AffirmationPage />} />
         </Routes>
       </main>
+      <Footer />
     </div>
   )
 }
