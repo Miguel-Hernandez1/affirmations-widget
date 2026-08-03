@@ -1,6 +1,14 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 
 export default function HomePage() {
+  const navigate = useNavigate()
+  const hasProfile = Boolean(localStorage.getItem('affirmation_profile'))
+
+  useEffect(() => {
+    if (hasProfile) navigate('/affirmation', { replace: true })
+  }, [hasProfile, navigate])
+
   return (
     <div className="flex flex-col items-center justify-center flex-1 px-6 py-20 md:py-32">
       <div className="max-w-xl w-full">
