@@ -5,8 +5,8 @@ A personalized daily affirmations web app. Take a short quiz and get one affirma
 ## How it works
 
 1. **Take the quiz** - 10 questions about which areas of life you're working on, how you feel, and what style of affirmation resonates with you.
-2. **Get your affirmation** — the app builds a profile from your answers and surfaces the best-matched affirmation for today.
-3. **Come back daily** — the affirmation rotates every day, always chosen from your personalized pool.
+2. **Get your affirmation** - the app builds a profile from your answers and surfaces the best-matched affirmation for today.
+3. **Come back daily** - the affirmation rotates every day, always chosen from your personalized pool.
 
 No account needed. Everything is saved locally in your browser.
 
