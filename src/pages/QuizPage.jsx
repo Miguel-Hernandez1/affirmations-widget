@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import QuizProgress from '../components/Quiz/QuizProgress'
 import QuizQuestion from '../components/Quiz/QuizQuestion'
 import { questions } from '../data'
@@ -23,8 +23,15 @@ function buildProfile(answers) {
 
 export default function QuizPage() {
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
+  const isRetake = searchParams.get('retake') === 'true'
   const [step, setStep] = useState(0)
   const [answers, setAnswers] = useState({})
+
+  useEffect(() => {
+    const existing = localStorage.getItem(STORAGE_KEY)
+    if (existing && !isRetake) navigate('/affirmation', { replace: true })
+  }, [isRetake, navigate])
 
   const question = questions[step]
   const answered = isAnswered(question, answers)

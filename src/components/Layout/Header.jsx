@@ -16,7 +16,7 @@ export default function Header() {
 
         {showRetake && (
           <Link
-            to="/quiz"
+            to="/quiz?retake=true"
             className="text-stone-500 hover:text-stone-800 text-sm transition-colors duration-150 hover:underline underline-offset-2"
           >
             Retake quiz
