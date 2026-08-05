@@ -23,7 +23,7 @@ export default function HomePage() {
 
         <p className="text-base text-stone-500 leading-relaxed mb-10 max-w-sm">
           A short quiz builds your profile. Each day, one affirmation
-          chosen specifically for you — not random inspiration, but
+          chosen specifically for you. Not random inspiration, but
           something that matches your life right now.
         </p>
 
