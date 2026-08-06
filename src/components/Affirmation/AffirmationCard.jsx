@@ -39,9 +39,9 @@ export default function AffirmationCard({ affirmation, onShare, copied = false }
   )
 
   return (
-    <div className="bg-white border border-stone-200 rounded-2xl px-8 py-10 md:px-12 md:py-14 shadow-sm w-full">
+    <div className="bg-white border border-stone-200 rounded-2xl px-8 py-12 md:px-12 md:py-16 shadow-sm w-full">
 
-      <div className="flex flex-wrap gap-x-3 gap-y-1 mb-10">
+      <div className="flex flex-wrap gap-x-3 gap-y-1 mb-12">
         {categories.map(label => (
           <span
             key={label}
@@ -56,7 +56,7 @@ export default function AffirmationCard({ affirmation, onShare, copied = false }
         {affirmation.text}
       </p>
 
-      <div className="flex items-center justify-between mt-10">
+      <div className="flex items-center justify-between mt-12">
         <span className="text-xs tracking-widest uppercase text-stone-400">
           {affirmation.tone}
         </span>
