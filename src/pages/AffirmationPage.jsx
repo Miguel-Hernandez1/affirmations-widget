@@ -48,11 +48,13 @@ export default function AffirmationPage() {
         <p className="text-xs text-stone-400">{formatDate()}</p>
       </div>
 
-      <AffirmationCard
-        affirmation={current}
-        onShare={() => share(current.text)}
-        copied={copied}
-      />
+      <div key={activeIndex} className="animate-question">
+        <AffirmationCard
+          affirmation={current}
+          onShare={() => share(current.text)}
+          copied={copied}
+        />
+      </div>
 
       <div className="mt-8 flex flex-col items-center gap-4">
 
