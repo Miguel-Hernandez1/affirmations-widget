@@ -17,7 +17,7 @@ export default function HomePage() {
           Personalized daily affirmations
         </p>
 
-        <h1 className="text-5xl md:text-6xl font-light text-stone-800 leading-tight mb-8">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-stone-800 leading-tight mb-8">
           Words that fit<br />where you are.
         </h1>
 
