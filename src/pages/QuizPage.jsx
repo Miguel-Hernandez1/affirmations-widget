@@ -60,7 +60,7 @@ export default function QuizPage() {
     <div className="max-w-xl mx-auto px-6 py-12">
       <QuizProgress currentStep={step + 1} totalSteps={questions.length} />
 
-      <div className="mt-10">
+      <div key={step} className="mt-10 animate-question">
         <QuizQuestion
           question={question}
           answer={answers[question.key] ?? null}
