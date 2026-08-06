@@ -1,0 +1,17 @@
+{
+  "name": "Affirmations",
+  "short_name": "Affirmations",
+  "description": "Your personalized daily affirmation.",
+  "start_url": "/affirmation",
+  "display": "standalone",
+  "background_color": "#fafaf9",
+  "theme_color": "#a78bfa",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
