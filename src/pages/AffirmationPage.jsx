@@ -49,6 +49,38 @@ export default function AffirmationPage() {
 
       <AffirmationCard affirmation={current} onShare={() => {}} />
 
+      <div className="mt-8 flex flex-col items-center gap-4">
+
+        {!isOnDaily && (
+          <button
+            onClick={() => setActiveIndex(0)}
+            className="text-xs text-stone-400 hover:text-stone-600 underline underline-offset-2 transition-colors duration-150"
+          >
+            Back to today's pick
+          </button>
+        )}
+
+        <div className="flex items-center gap-5">
+          <span className="text-xs text-stone-400">
+            {activeIndex + 1} of {pool.length}
+          </span>
+
+          {activeIndex < pool.length - 1 ? (
+            <button
+              onClick={() => setActiveIndex(i => i + 1)}
+              className="text-stone-600 hover:text-stone-800 text-sm font-medium underline underline-offset-2 transition-colors duration-150"
+            >
+              Next affirmation
+            </button>
+          ) : (
+            <span className="text-xs text-stone-400 italic">
+              That is all for today
+            </span>
+          )}
+        </div>
+
+      </div>
+
     </div>
   )
 }
