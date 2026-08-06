@@ -1,5 +1,5 @@
 import { useEffect, useState, useMemo } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation, Link } from 'react-router-dom'
 import AffirmationCard from '../components/Affirmation/AffirmationCard'
 import AffirmationLoading from '../components/Affirmation/AffirmationLoading'
 import { getDailyAffirmation, useShare } from '../utils'
@@ -101,6 +101,15 @@ export default function AffirmationPage() {
           )}
         </div>
 
+      </div>
+
+      <div className="mt-12 text-center">
+        <Link
+          to="/widget"
+          className="text-xs text-stone-300 hover:text-stone-400 transition-colors duration-150"
+        >
+          Set up iOS widget
+        </Link>
       </div>
 
     </div>
