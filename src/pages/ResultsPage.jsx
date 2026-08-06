@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { questions } from '../data'
 
 function labelFor(questionKey, value) {
@@ -26,8 +27,13 @@ function Row({ label, children }) {
 }
 
 export default function ResultsPage() {
+  const navigate = useNavigate()
   const raw = localStorage.getItem('affirmation_profile')
   const profile = raw ? JSON.parse(raw) : null
+
+  useEffect(() => {
+    if (!profile) navigate('/quiz', { replace: true })
+  }, [profile, navigate])
 
   if (!profile) return null
 
@@ -71,6 +77,16 @@ export default function ResultsPage() {
       >
         See my affirmation
       </Link>
+
+      <p className="text-xs text-stone-400 mt-5">
+        Not right?{' '}
+        <Link
+          to="/quiz?retake=true"
+          className="underline underline-offset-2 hover:text-stone-600 transition-colors duration-150"
+        >
+          Start over
+        </Link>
+      </p>
     </div>
   )
 }
