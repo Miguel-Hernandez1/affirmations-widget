@@ -11,15 +11,17 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col items-center justify-center flex-1 px-6 py-20 md:py-32">
-      <div className="max-w-xl w-full">
+      <div className="max-w-2xl w-full">
 
-        <p className="text-xs font-medium tracking-widest uppercase text-stone-400 mb-8">
+        <p className="text-xs font-medium tracking-widest uppercase text-stone-400 mb-6">
           Personalized daily affirmations
         </p>
 
-        <h1 className="text-4xl md:text-5xl font-light text-stone-800 leading-snug mb-6">
+        <h1 className="text-5xl md:text-6xl font-light text-stone-800 leading-tight mb-8">
           Words that fit<br />where you are.
         </h1>
+
+        <div className="w-10 h-px bg-stone-200 mb-8" />
 
         <p className="text-base text-stone-500 leading-relaxed mb-10 max-w-sm">
           A short quiz builds your profile. Each day, one affirmation
