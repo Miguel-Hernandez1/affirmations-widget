@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import AffirmationCard from '../components/Affirmation/AffirmationCard'
-import { getDailyAffirmation } from '../utils'
+import { getDailyAffirmation, useShare } from '../utils'
 
 function formatDate() {
   return new Date().toLocaleDateString('en-US', {
@@ -31,6 +31,7 @@ export default function AffirmationPage() {
   )
 
   const [activeIndex, setActiveIndex] = useState(0)
+  const { share, copied } = useShare()
 
   if (!profile || !daily) return null
 
@@ -47,7 +48,11 @@ export default function AffirmationPage() {
         <p className="text-xs text-stone-400">{formatDate()}</p>
       </div>
 
-      <AffirmationCard affirmation={current} onShare={() => {}} />
+      <AffirmationCard
+        affirmation={current}
+        onShare={() => share(current.text)}
+        copied={copied}
+      />
 
       <div className="mt-8 flex flex-col items-center gap-4">
 

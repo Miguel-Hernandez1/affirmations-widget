@@ -31,7 +31,7 @@ function ShareIcon() {
   )
 }
 
-export default function AffirmationCard({ affirmation, onShare }) {
+export default function AffirmationCard({ affirmation, onShare, copied = false }) {
   if (!affirmation) return null
 
   const categories = affirmation.categories.map(
@@ -61,14 +61,20 @@ export default function AffirmationCard({ affirmation, onShare }) {
           {affirmation.tone}
         </span>
 
-        <button
-          type="button"
-          onClick={onShare}
-          className="text-stone-400 hover:text-stone-700 transition-colors duration-150 p-1 -mr-1"
-          aria-label="Share this affirmation"
-        >
-          <ShareIcon />
-        </button>
+        {copied ? (
+          <span className="text-xs text-violet-400 font-medium transition-opacity duration-200">
+            Copied
+          </span>
+        ) : (
+          <button
+            type="button"
+            onClick={onShare}
+            className="text-stone-400 hover:text-stone-700 transition-colors duration-150 p-1 -mr-1"
+            aria-label="Share this affirmation"
+          >
+            <ShareIcon />
+          </button>
+        )}
       </div>
 
     </div>
