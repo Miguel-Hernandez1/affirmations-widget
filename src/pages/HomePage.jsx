@@ -11,7 +11,7 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col items-center justify-center flex-1 px-6 py-20 md:py-32">
-      <div className="max-w-2xl w-full">
+      <div className="max-w-2xl w-full animate-question">
 
         <p className="text-xs font-medium tracking-widest uppercase text-stone-400 mb-6">
           Personalized daily affirmations
