@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import AffirmationCard from '../components/Affirmation/AffirmationCard'
+import AffirmationLoading from '../components/Affirmation/AffirmationLoading'
 import { getDailyAffirmation, useShare } from '../utils'
 
 function formatDate() {
@@ -12,13 +13,23 @@ function formatDate() {
 }
 
 export default function AffirmationPage() {
-  const navigate = useNavigate()
-  const raw     = localStorage.getItem('affirmation_profile')
-  const profile = raw ? JSON.parse(raw) : null
+  const navigate  = useNavigate()
+  const location  = useLocation()
+  const isFresh   = location.state?.fresh === true
+  const raw       = localStorage.getItem('affirmation_profile')
+  const profile   = raw ? JSON.parse(raw) : null
+
+  const [isReady, setIsReady] = useState(!isFresh)
 
   useEffect(() => {
     if (!profile) navigate('/quiz', { replace: true })
   }, [profile, navigate])
+
+  useEffect(() => {
+    if (!isFresh) return
+    const t = setTimeout(() => setIsReady(true), 400)
+    return () => clearTimeout(t)
+  }, [isFresh])
 
   const { daily, alternatives } = useMemo(
     () => (profile ? getDailyAffirmation(profile) : { daily: null, alternatives: [] }),
@@ -48,13 +59,17 @@ export default function AffirmationPage() {
         <p className="text-xs text-stone-400">{formatDate()}</p>
       </div>
 
-      <div key={activeIndex} className="animate-question">
-        <AffirmationCard
-          affirmation={current}
-          onShare={() => share(current.text)}
-          copied={copied}
-        />
-      </div>
+      {!isReady ? (
+        <AffirmationLoading />
+      ) : (
+        <div key={activeIndex} className="animate-question">
+          <AffirmationCard
+            affirmation={current}
+            onShare={() => share(current.text)}
+            copied={copied}
+          />
+        </div>
+      )}
 
       <div className="mt-8 flex flex-col items-center gap-4">
 

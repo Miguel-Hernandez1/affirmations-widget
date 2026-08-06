@@ -73,6 +73,7 @@ export default function ResultsPage() {
 
       <Link
         to="/affirmation"
+        state={{ fresh: true }}
         className="inline-block bg-violet-400 hover:bg-violet-500 text-white text-sm font-medium px-8 py-3 rounded-full transition-colors duration-200"
       >
         See my affirmation
