@@ -69,7 +69,7 @@ export default function AffirmationCard({ affirmation, onShare, copied = false }
           <button
             type="button"
             onClick={onShare}
-            className="text-stone-400 hover:text-stone-700 transition-colors duration-150 p-1 -mr-1"
+            className="text-stone-400 hover:text-stone-700 transition-colors duration-150 p-2 -mr-2"
             aria-label="Share this affirmation"
           >
             <ShareIcon />

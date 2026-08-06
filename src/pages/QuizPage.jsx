@@ -80,7 +80,7 @@ export default function QuizPage() {
         <button
           onClick={handleNext}
           disabled={!answered}
-          className="ml-auto bg-violet-400 hover:bg-violet-500 disabled:opacity-40 disabled:cursor-not-allowed text-white text-sm font-medium px-6 py-2.5 rounded-full transition-colors duration-200"
+          className="ml-auto bg-violet-400 hover:bg-violet-500 disabled:opacity-40 disabled:cursor-not-allowed text-white text-sm font-medium px-6 py-3 rounded-full transition-colors duration-200"
         >
           {isLast ? 'See my affirmation' : 'Next'}
         </button>
