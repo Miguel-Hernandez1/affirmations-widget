@@ -6,6 +6,7 @@ import QuizPage from './pages/QuizPage'
 import ResultsPage from './pages/ResultsPage'
 import AffirmationPage from './pages/AffirmationPage'
 import WidgetPage from './pages/WidgetPage'
+import JournalPage from './pages/JournalPage'
 
 export default function App() {
   const location = useLocation()
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="/results" element={<ResultsPage />} />
           <Route path="/affirmation" element={<AffirmationPage />} />
           <Route path="/widget" element={<WidgetPage />} />
+          <Route path="/journal" element={<JournalPage />} />
         </Routes>
       </main>
       <Footer />

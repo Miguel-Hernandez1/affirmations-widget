@@ -3,6 +3,7 @@ import { useNavigate, useLocation, Link } from 'react-router-dom'
 import AffirmationCard from '../components/Affirmation/AffirmationCard'
 import AffirmationLoading from '../components/Affirmation/AffirmationLoading'
 import SelectionView from '../components/Affirmation/SelectionView'
+import JournalPrompt from '../components/Journal/JournalPrompt'
 import { getDailyAffirmation, useShare } from '../utils'
 
 function formatDate() {
@@ -109,7 +110,17 @@ export default function AffirmationPage() {
         <SelectionView pool={pool} onPick={handlePick} />
       )}
 
-      <div className="mt-12 text-center">
+      {chosenAffirmation && isReady && (
+        <JournalPrompt affirmation={chosenAffirmation} />
+      )}
+
+      <div className="mt-12 flex items-center justify-center gap-6">
+        <Link
+          to="/journal"
+          className="text-xs text-stone-300 hover:text-stone-400 transition-colors duration-150"
+        >
+          Journal
+        </Link>
         <Link
           to="/widget"
           className="text-xs text-stone-300 hover:text-stone-400 transition-colors duration-150"
