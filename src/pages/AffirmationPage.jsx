@@ -50,15 +50,26 @@ export default function AffirmationPage() {
     [raw]
   )
 
+  const dailyCount = profile ? Math.min(parseInt(profile.dailyCount) || 5, 5) : 5
+
   const pool = useMemo(
-    () => (daily ? [daily, ...alternatives] : []),
-    [daily, alternatives]
+    () => (daily ? [daily, ...alternatives].slice(0, dailyCount) : []),
+    [daily, alternatives, dailyCount]
   )
 
   const savedChoice = useMemo(() => getSavedChoiceFromPool(pool), [pool])
 
   const [pickedAffirmation, setPickedAffirmation] = useState(null)
-  const chosenAffirmation = pickedAffirmation ?? savedChoice
+  const chosenAffirmation = pickedAffirmation ?? savedChoice ?? (dailyCount === 1 ? daily : null)
+
+  useEffect(() => {
+    if (dailyCount === 1 && daily && !savedChoice) {
+      localStorage.setItem('affirmation_choice', JSON.stringify({
+        date: new Date().toDateString(),
+        id:   daily.id,
+      }))
+    }
+  }, [dailyCount, daily, savedChoice])
 
   const { share, copied } = useShare()
 
