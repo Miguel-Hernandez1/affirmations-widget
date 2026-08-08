@@ -48,36 +48,46 @@ export default function WidgetPage() {
         Your affirmation on your home screen.
       </h1>
 
-      <p className="text-sm text-stone-500 leading-relaxed mb-12">
-        Four steps. Takes about 2 minutes. Requires the free Scriptable app.
+      <p className="text-sm text-stone-500 mb-12">
+        Takes about 2 minutes. You will need the free Scriptable app.
       </p>
 
       <div className="flex flex-col gap-8">
 
         <Step number="1" title="Get Scriptable">
-          <p className="text-sm text-stone-600 leading-relaxed">
-            Download the free <span className="font-medium text-stone-800">Scriptable</span> app
-            from the App Store. It runs JavaScript on your iPhone and powers the widget.
+          <p className="text-sm text-stone-600">
+            Download{' '}
+            <a
+              href="https://apps.apple.com/us/app/scriptable/id1405459188"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-stone-800 underline underline-offset-2 hover:text-violet-400 transition-colors duration-150"
+            >
+              Scriptable
+            </a>
+            {' '}from the App Store. It is free.
           </p>
         </Step>
 
         <Step number="2" title="Copy your profile key">
-          <p className="text-sm text-stone-600 leading-relaxed mb-3">
-            This key encodes your quiz answers so the widget knows which affirmations to pick for you.
+          <p className="text-sm text-stone-600 mb-3">
+            This tells the widget which affirmations to pick for you.
           </p>
-          <div className="bg-stone-100 rounded-xl px-4 py-3 font-mono text-xs text-stone-500 break-all mb-3 leading-relaxed">
-            {profileKey}
+          <div className="flex items-center gap-3 bg-stone-100 rounded-xl px-4 py-3">
+            <span className="font-mono text-xs text-stone-400 flex-1 truncate">
+              {profileKey}
+            </span>
+            <button
+              onClick={copyKey}
+              className="flex-shrink-0 text-xs font-medium text-violet-400 hover:text-violet-500 transition-colors duration-150"
+            >
+              {copied ? 'Copied' : 'Copy'}
+            </button>
           </div>
-          <button
-            onClick={copyKey}
-            className="text-sm font-medium text-violet-400 hover:text-violet-500 transition-colors duration-150"
-          >
-            {copied ? 'Copied' : 'Copy key'}
-          </button>
         </Step>
 
         <Step number="3" title="Add the widget script">
-          <p className="text-sm text-stone-600 leading-relaxed">
+          <p className="text-sm text-stone-600">
             <a
               href="/widget.js"
               download
@@ -85,19 +95,17 @@ export default function WidgetPage() {
             >
               Download widget.js
             </a>
-            , open Scriptable, create a new script, and paste the contents.
-            Find the{' '}
+            , open it in Scriptable, and paste your profile key where it says{' '}
             <code className="font-mono bg-stone-100 px-1.5 py-0.5 rounded text-xs text-stone-600">
               PROFILE_KEY = ""
-            </code>{' '}
-            line and paste your key between the quotes.
+            </code>.
           </p>
         </Step>
 
         <Step number="4" title="Add to your home screen">
-          <p className="text-sm text-stone-600 leading-relaxed">
+          <p className="text-sm text-stone-600">
             Long-press your home screen, tap <span className="font-medium text-stone-800">+</span>,
-            search for Scriptable, choose Small or Medium, then select your affirmation script.
+            search Scriptable, pick a size, and select your script.
           </p>
         </Step>
 
