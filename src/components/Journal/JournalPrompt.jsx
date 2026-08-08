@@ -37,7 +37,7 @@ export default function JournalPrompt({ affirmation }) {
   if (existingEntry) {
     return (
       <div className="mt-10 border-t border-stone-100 pt-8">
-        <p className="text-xs font-medium tracking-widest uppercase text-stone-400 mb-4">
+        <p className="text-xs font-medium tracking-widest uppercase text-stone-600 mb-4">
           Today's reflection
         </p>
         {existingEntry.mood && (
@@ -64,7 +64,7 @@ export default function JournalPrompt({ affirmation }) {
 
   return (
     <div className="mt-10 border-t border-stone-100 pt-8">
-      <p className="text-xs font-medium tracking-widest uppercase text-stone-400 mb-4">
+      <p className="text-xs font-medium tracking-widest uppercase text-stone-600 mb-4">
         Reflect
       </p>
       <textarea

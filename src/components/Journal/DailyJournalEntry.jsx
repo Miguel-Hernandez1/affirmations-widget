@@ -50,7 +50,7 @@ export default function DailyJournalEntry() {
           <button
             type="button"
             onClick={beginEdit}
-            className="text-xs text-stone-300 hover:text-stone-500 underline underline-offset-2 transition-colors duration-150"
+            className="text-xs text-stone-400 hover:text-stone-600 underline underline-offset-2 transition-colors duration-150"
           >
             Edit
           </button>
@@ -64,7 +64,7 @@ export default function DailyJournalEntry() {
 
   return (
     <div className="mb-10 pb-8 border-b border-stone-100">
-      <p className="text-xs font-medium tracking-widest uppercase text-stone-400 mb-4">
+      <p className="text-xs font-medium tracking-widest uppercase text-stone-600 mb-4">
         Today
       </p>
       <textarea
@@ -87,7 +87,7 @@ export default function DailyJournalEntry() {
           <button
             type="button"
             onClick={cancelEdit}
-            className="text-xs text-stone-300 hover:text-stone-400 transition-colors duration-150"
+            className="text-xs text-stone-400 hover:text-stone-500 transition-colors duration-150"
           >
             Cancel
           </button>

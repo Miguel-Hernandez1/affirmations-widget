@@ -88,10 +88,10 @@ export default function AffirmationPage() {
     <div className="max-w-xl mx-auto px-6 py-16">
 
       <div className="flex items-baseline justify-between mb-8">
-        <p className="text-xs font-medium tracking-widest uppercase text-stone-400">
+        <p className="text-xs font-medium tracking-widest uppercase text-stone-500">
           {profile.name ? `Your affirmation, ${profile.name}` : 'Your affirmation'}
         </p>
-        <p className="text-xs text-stone-400">{formatDate()}</p>
+        <p className="text-xs text-stone-500">{formatDate()}</p>
       </div>
 
       {!isReady ? (
@@ -117,13 +117,13 @@ export default function AffirmationPage() {
       <div className="mt-12 flex items-center justify-center gap-6">
         <Link
           to="/journal"
-          className="text-xs text-stone-300 hover:text-stone-400 transition-colors duration-150"
+          className="text-xs text-stone-300 hover:text-stone-500 transition-colors duration-150"
         >
           Journal
         </Link>
         <Link
           to="/widget"
-          className="text-xs text-stone-300 hover:text-stone-400 transition-colors duration-150"
+          className="text-xs text-stone-300 hover:text-stone-500 transition-colors duration-150"
         >
           Set up iOS widget
         </Link>

@@ -58,7 +58,7 @@ export default function AffirmationCard({ affirmation, onShare, copied = false, 
         {categories.map(label => (
           <span
             key={label}
-            className="text-xs font-medium tracking-widest uppercase text-stone-400"
+            className="text-xs font-medium tracking-widest uppercase text-violet-500"
           >
             {label}
           </span>
@@ -70,7 +70,7 @@ export default function AffirmationCard({ affirmation, onShare, copied = false, 
       </p>
 
       <div className="flex items-center justify-between mt-12">
-        <span className="text-xs tracking-widest uppercase text-stone-400">
+        <span className="text-xs tracking-widest uppercase text-stone-500">
           {affirmation.tone}
         </span>
 

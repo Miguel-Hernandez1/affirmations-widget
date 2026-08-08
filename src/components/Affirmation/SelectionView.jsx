@@ -22,7 +22,7 @@ function SelectionCard({ affirmation, onPick }) {
         {categories.map(label => (
           <span
             key={label}
-            className="text-xs font-medium tracking-widest uppercase text-stone-400"
+            className="text-xs font-medium tracking-widest uppercase text-violet-500"
           >
             {label}
           </span>
@@ -38,7 +38,7 @@ function SelectionCard({ affirmation, onPick }) {
 export default function SelectionView({ pool, onPick }) {
   return (
     <div>
-      <p className="text-sm text-stone-500 mb-5">
+      <p className="text-sm text-stone-600 mb-5">
         Choose the one that feels right today.
       </p>
       <div className="flex flex-col gap-3">

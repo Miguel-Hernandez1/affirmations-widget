@@ -42,12 +42,12 @@ export default function JournalPage() {
     <div className="max-w-xl mx-auto px-6 py-16">
 
       <div className="flex items-baseline justify-between mb-8">
-        <p className="text-xs font-medium tracking-widest uppercase text-stone-400">
+        <p className="text-sm font-medium text-stone-800 tracking-wide">
           Journal
         </p>
         <Link
           to="/affirmation"
-          className="text-xs text-stone-400 hover:text-stone-600 underline underline-offset-2 transition-colors duration-150"
+          className="text-xs text-stone-500 hover:text-stone-700 underline underline-offset-2 transition-colors duration-150"
         >
           Back to today
         </Link>
@@ -56,14 +56,14 @@ export default function JournalPage() {
       <DailyJournalEntry />
 
       {history.length === 0 ? (
-        <p className="text-sm text-stone-400 italic">
+        <p className="text-sm text-stone-500 italic">
           Your past entries will appear here.
         </p>
       ) : (
         <div className="flex flex-col gap-8">
           {history.map(({ date, free, reflection }) => (
             <div key={date} className="border-t border-stone-100 pt-6">
-              <p className="text-xs text-stone-400 mb-4">
+              <p className="text-xs font-medium text-stone-500 mb-4">
                 {formatEntryDate(date)}
               </p>
 
@@ -74,12 +74,12 @@ export default function JournalPage() {
               )}
 
               {reflection && (
-                <div className={free ? 'pt-4 border-t border-stone-50' : ''}>
+                <div className={free ? 'pt-4 border-t border-stone-100' : ''}>
                   <p className="text-sm font-light text-stone-500 italic mb-3 leading-relaxed">
                     {reflection.affirmationText}
                   </p>
                   {reflection.mood && (
-                    <span className="inline-block text-xs text-stone-400 border border-stone-200 rounded-full px-3 py-1 mb-3">
+                    <span className="inline-block text-xs text-stone-500 border border-stone-200 rounded-full px-3 py-1 mb-3">
                       {reflection.mood}
                     </span>
                   )}
