@@ -1,6 +1,6 @@
 # Affirmations Widget
 
-**Live:** [affirmations-widget.vercel.app](https://affirmations-widget.vercel.app)
+**Live:** <a href="https://affirmations-widget.vercel.app" target="_blank" rel="noopener noreferrer">affirmations-widget.vercel.app</a>
 
 A personalized daily affirmations web app. Take a short quiz and get one affirmation per day chosen specifically for where you are in life, not random inspiration, but something that actually fits.
 
