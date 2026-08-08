@@ -98,6 +98,12 @@ export const questions = [
       { value: 'I have',    label: '"I have..."',    description: 'Focused on what you already carry' },
       { value: 'I choose',  label: '"I choose..."',  description: 'About the decisions you make each day' },
       { value: 'I attract', label: '"I attract..."', description: 'About what you draw into your life' },
+      { value: 'I release', label: '"I release..."', description: 'For letting go of what no longer serves you' },
+      { value: 'I trust',   label: '"I trust..."',   description: 'Leaning into faith in yourself and the process' },
+      { value: 'I welcome', label: '"I welcome..."', description: 'Opening up to what is coming toward you' },
+      { value: 'I embrace', label: '"I embrace..."', description: 'Accepting where you are with compassion' },
+      { value: 'I create',  label: '"I create..."',  description: 'Owning your role as the author of your life' },
+      { value: 'I deserve', label: '"I deserve..."', description: 'Claiming what is rightfully yours' },
     ],
   },
   {
