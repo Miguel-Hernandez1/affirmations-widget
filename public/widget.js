@@ -1,8 +1,5 @@
-// ─── Affirmations Widget for Scriptable ───────────────────────────────────
-// 1. Get your Profile Key from affirmations-widget.vercel.app/widget
-// 2. Paste it below between the quotes
-// 3. Add a Scriptable widget to your home screen and select this script
-// ──────────────────────────────────────────────────────────────────────────
+// Affirmations Widget — setup: affirmations-widget.vercel.app/widget
+// Paste your Profile Key between the quotes on the next line.
 
 const PROFILE_KEY = "" // paste your key here
 
