@@ -67,6 +67,8 @@ export default function AffirmationPage() {
             affirmation={current}
             onShare={() => share(current.text)}
             copied={copied}
+            fontStyle={profile.fontStyle}
+            cardTheme={profile.cardTheme}
           />
         </div>
       )}

@@ -9,6 +9,19 @@ const CATEGORY_LABELS = {
   purpose:       'Purpose & direction',
 }
 
+const CARD_THEMES = {
+  default: { card: 'bg-white border-stone-200' },
+  warm:    { card: 'bg-amber-50 border-amber-200' },
+  sage:    { card: 'bg-emerald-50 border-emerald-200' },
+  dusk:    { card: 'bg-violet-50 border-violet-200' },
+}
+
+const FONT_CLASSES = {
+  sans:  { family: 'font-sans',  weight: 'font-light',  size: 'text-3xl md:text-4xl' },
+  serif: { family: 'font-serif', weight: 'font-light',  size: 'text-3xl md:text-4xl' },
+  mono:  { family: 'font-mono',  weight: 'font-normal', size: 'text-2xl md:text-3xl' },
+}
+
 function ShareIcon() {
   return (
     <svg
@@ -31,15 +44,15 @@ function ShareIcon() {
   )
 }
 
-export default function AffirmationCard({ affirmation, onShare, copied = false }) {
+export default function AffirmationCard({ affirmation, onShare, copied = false, fontStyle = 'sans', cardTheme = 'default' }) {
   if (!affirmation) return null
 
-  const categories = affirmation.categories.map(
-    c => CATEGORY_LABELS[c] ?? c
-  )
+  const categories = affirmation.categories.map(c => CATEGORY_LABELS[c] ?? c)
+  const theme = CARD_THEMES[cardTheme] ?? CARD_THEMES.default
+  const font  = FONT_CLASSES[fontStyle]  ?? FONT_CLASSES.sans
 
   return (
-    <div className="bg-white border border-stone-200 rounded-2xl px-8 py-12 md:px-12 md:py-16 shadow-sm w-full">
+    <div className={`${theme.card} border rounded-2xl px-8 py-12 md:px-12 md:py-16 shadow-sm w-full`}>
 
       <div className="flex flex-wrap gap-x-3 gap-y-1 mb-12">
         {categories.map(label => (
@@ -52,7 +65,7 @@ export default function AffirmationCard({ affirmation, onShare, copied = false }
         ))}
       </div>
 
-      <p className="text-3xl md:text-4xl font-light text-stone-800 leading-relaxed text-center">
+      <p className={`${font.size} ${font.weight} ${font.family} text-stone-800 leading-relaxed text-center`}>
         {affirmation.text}
       </p>
 
