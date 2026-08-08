@@ -2,6 +2,7 @@ import { useEffect, useState, useMemo } from 'react'
 import { useNavigate, useLocation, Link } from 'react-router-dom'
 import AffirmationCard from '../components/Affirmation/AffirmationCard'
 import AffirmationLoading from '../components/Affirmation/AffirmationLoading'
+import SelectionView from '../components/Affirmation/SelectionView'
 import { getDailyAffirmation, useShare } from '../utils'
 
 function formatDate() {
@@ -10,6 +11,19 @@ function formatDate() {
     month:   'long',
     day:     'numeric',
   })
+}
+
+function getSavedChoiceFromPool(pool) {
+  if (!pool.length) return null
+  try {
+    const saved = localStorage.getItem('affirmation_choice')
+    if (!saved) return null
+    const choice = JSON.parse(saved)
+    if (choice.date !== new Date().toDateString()) return null
+    return pool.find(a => a.id === choice.id) ?? null
+  } catch {
+    return null
+  }
 }
 
 export default function AffirmationPage() {
@@ -41,13 +55,22 @@ export default function AffirmationPage() {
     [daily, alternatives]
   )
 
-  const [activeIndex, setActiveIndex] = useState(0)
+  const savedChoice = useMemo(() => getSavedChoiceFromPool(pool), [pool])
+
+  const [pickedAffirmation, setPickedAffirmation] = useState(null)
+  const chosenAffirmation = pickedAffirmation ?? savedChoice
+
   const { share, copied } = useShare()
 
-  if (!profile || !daily) return null
+  function handlePick(affirmation) {
+    localStorage.setItem('affirmation_choice', JSON.stringify({
+      date: new Date().toDateString(),
+      id:   affirmation.id,
+    }))
+    setPickedAffirmation(affirmation)
+  }
 
-  const current = pool[activeIndex]
-  const isOnDaily = activeIndex === 0
+  if (!profile || !daily) return null
 
   return (
     <div className="max-w-xl mx-auto px-6 py-16">
@@ -61,49 +84,19 @@ export default function AffirmationPage() {
 
       {!isReady ? (
         <AffirmationLoading />
-      ) : (
-        <div key={activeIndex} className="animate-question">
+      ) : chosenAffirmation ? (
+        <div key={chosenAffirmation.id} className="animate-question">
           <AffirmationCard
-            affirmation={current}
-            onShare={() => share(current.text)}
+            affirmation={chosenAffirmation}
+            onShare={() => share(chosenAffirmation.text)}
             copied={copied}
             fontStyle={profile.fontStyle}
             cardTheme={profile.cardTheme}
           />
         </div>
+      ) : (
+        <SelectionView pool={pool} onPick={handlePick} />
       )}
-
-      <div className="mt-8 flex flex-col items-center gap-4">
-
-        {!isOnDaily && (
-          <button
-            onClick={() => setActiveIndex(0)}
-            className="text-xs text-stone-400 hover:text-stone-600 underline underline-offset-2 transition-colors duration-150"
-          >
-            Back to today's pick
-          </button>
-        )}
-
-        <div className="flex items-center gap-5">
-          <span className="text-xs text-stone-400">
-            {activeIndex + 1} of {pool.length}
-          </span>
-
-          {activeIndex < pool.length - 1 ? (
-            <button
-              onClick={() => setActiveIndex(i => i + 1)}
-              className="text-stone-600 hover:text-stone-800 text-sm font-medium underline underline-offset-2 transition-colors duration-150"
-            >
-              Next affirmation
-            </button>
-          ) : (
-            <span className="text-xs text-stone-400 italic">
-              That is all for today
-            </span>
-          )}
-        </div>
-
-      </div>
 
       <div className="mt-12 text-center">
         <Link
