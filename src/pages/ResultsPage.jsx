@@ -40,7 +40,7 @@ export default function ResultsPage() {
   const categories  = labelFor('categories', profile.categories)
   const challenge   = labelFor('challenge', profile.challenge)
   const wantMore    = labelFor('wantMore', profile.wantMore)
-  const style       = profile.style
+  const style       = labelFor('style', profile.style)
   const tone        = labelFor('tone', profile.tone)
   const length      = labelFor('length', profile.length)
 
@@ -66,7 +66,9 @@ export default function ResultsPage() {
         <Row label="Want more of">
           {Array.isArray(wantMore) ? wantMore.join(', ') : wantMore}
         </Row>
-        <Row label="Affirmation style">{style}</Row>
+        <Row label="Affirmation style">
+          {Array.isArray(style) ? style.join(', ') : style}
+        </Row>
         <Row label="Tone">{tone}</Row>
         <Row label="Length">{length}</Row>
       </div>

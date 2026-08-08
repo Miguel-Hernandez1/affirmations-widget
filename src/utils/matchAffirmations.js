@@ -37,7 +37,8 @@ function scoreAffirmation(affirmation, profile, boosted) {
     if (boosted.has(cat))               score += BOOST_PTS
   })
 
-  if (affirmation.style  === profile.style)  score += STYLE_MATCH_PTS
+  const styles = Array.isArray(profile.style) ? profile.style : (profile.style ? [profile.style] : [])
+  if (styles.includes(affirmation.style))    score += STYLE_MATCH_PTS
   if (affirmation.tone   === profile.tone)   score += TONE_PTS
   if (affirmation.length === profile.length) score += LENGTH_PTS
 
