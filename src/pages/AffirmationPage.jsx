@@ -117,13 +117,13 @@ export default function AffirmationPage() {
       <div className="mt-12 flex items-center justify-center gap-6">
         <Link
           to="/journal"
-          className="text-xs text-stone-500 hover:text-stone-700 transition-colors duration-150"
+          className="text-xs text-stone-600 hover:text-stone-800 underline underline-offset-2 transition-colors duration-150"
         >
           Journal
         </Link>
         <Link
           to="/widget"
-          className="text-xs text-stone-500 hover:text-stone-700 transition-colors duration-150"
+          className="text-xs text-stone-600 hover:text-stone-800 underline underline-offset-2 transition-colors duration-150"
         >
           Set up iOS widget
         </Link>
