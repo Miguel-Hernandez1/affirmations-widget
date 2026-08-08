@@ -197,4 +197,19 @@ export const questions = [
       { value: 'dusk',    label: 'Soft violet', description: 'Familiar and gentle' },
     ],
   },
+  {
+    id: 13,
+    key: 'dailyCount',
+    type: 'single',
+    text: 'How many affirmations do you want to choose from each day?',
+    subtitle: null,
+    placeholder: null,
+    mapTo: 'dailyCount',
+    maxSelections: null,
+    options: [
+      { value: '1', label: 'Just one',   description: 'Your best match, chosen for you' },
+      { value: '3', label: 'A few',      description: 'Pick from your top three' },
+      { value: '5', label: 'Give me options', description: 'Choose from your top five' },
+    ],
+  },
 ]
