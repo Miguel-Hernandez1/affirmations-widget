@@ -87,9 +87,9 @@ export const questions = [
   {
     id: 6,
     key: 'style',
-    type: 'single',
-    text: 'Which opening feels most natural to you?',
-    subtitle: 'This sets the voice of your affirmations.',
+    type: 'multi',
+    text: 'Which openings feel right for you?',
+    subtitle: 'Pick as many as you like.',
     placeholder: null,
     mapTo: 'style',
     maxSelections: null,

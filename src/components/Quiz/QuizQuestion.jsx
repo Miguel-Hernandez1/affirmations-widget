@@ -57,7 +57,8 @@ function SingleQuestion({ question, answer, onChange }) {
 
 function MultiQuestion({ question, answer, onChange }) {
   const selected = answer || []
-  const isAtMax = selected.length >= question.maxSelections
+  const hasLimit = question.maxSelections !== null
+  const isAtMax  = hasLimit && selected.length >= question.maxSelections
 
   function toggle(value) {
     if (selected.includes(value)) {
@@ -89,13 +90,18 @@ function MultiQuestion({ question, answer, onChange }) {
               }`}
             >
               <span className="block text-sm font-medium">{option.label}</span>
+              {option.description && (
+                <span className="block text-xs text-stone-400 mt-0.5">{option.description}</span>
+              )}
             </button>
           )
         })}
       </div>
-      <p className="text-xs text-stone-400 mt-3">
-        {selected.length} of {question.maxSelections} selected
-      </p>
+      {hasLimit && (
+        <p className="text-xs text-stone-400 mt-3">
+          {selected.length} of {question.maxSelections} selected
+        </p>
+      )}
     </div>
   )
 }
