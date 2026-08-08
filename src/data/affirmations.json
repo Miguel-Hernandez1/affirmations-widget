@@ -165,5 +165,52 @@
   { "id": 157, "text": "I am building a life that reflects my actual values.", "categories": ["purpose"], "style": "I am", "tone": "powerful", "length": "long" },
   { "id": 158, "text": "I choose to keep asking the questions that lead me forward.", "categories": ["purpose"], "style": "I choose", "tone": "peaceful", "length": "long" },
   { "id": 159, "text": "I have a story that is still being written.", "categories": ["purpose"], "style": "I have", "tone": "peaceful", "length": "short" },
-  { "id": 160, "text": "I am exactly where I need to be, and I am moving forward.", "categories": ["purpose", "mindfulness"], "style": "I am", "tone": "peaceful", "length": "long" }
+  { "id": 160, "text": "I am exactly where I need to be, and I am moving forward.", "categories": ["purpose", "mindfulness"], "style": "I am", "tone": "peaceful", "length": "long" },
+
+  { "id": 161, "text": "I release the need to have everything figured out, and trust that clarity will come when I am ready.", "categories": ["mindfulness", "purpose"], "style": "I release", "tone": "peaceful", "length": "long" },
+  { "id": 162, "text": "I release the old stories I was told about myself and choose to write new ones.", "categories": ["confidence", "mindfulness"], "style": "I release", "tone": "loving", "length": "long" },
+  { "id": 163, "text": "I release financial worry and trust that abundance is already forming in my life.", "categories": ["money", "mindfulness"], "style": "I release", "tone": "peaceful", "length": "long" },
+  { "id": 164, "text": "I release the weight of other people's expectations and step into my own truth.", "categories": ["confidence", "mindfulness"], "style": "I release", "tone": "powerful", "length": "long" },
+  { "id": 165, "text": "I release comparison and return to my own path.", "categories": ["confidence", "purpose"], "style": "I release", "tone": "peaceful", "length": "short" },
+  { "id": 166, "text": "I release tension from my body and welcome ease.", "categories": ["health", "mindfulness"], "style": "I release", "tone": "peaceful", "length": "short" },
+
+  { "id": 167, "text": "I trust that the right opportunities are finding their way to me.", "categories": ["career", "purpose"], "style": "I trust", "tone": "peaceful", "length": "long" },
+  { "id": 168, "text": "I trust myself to make decisions that truly honor who I am and what I stand for.", "categories": ["confidence", "purpose"], "style": "I trust", "tone": "powerful", "length": "long" },
+  { "id": 169, "text": "I trust my body's wisdom to guide me toward what it genuinely needs.", "categories": ["health", "mindfulness"], "style": "I trust", "tone": "loving", "length": "long" },
+  { "id": 170, "text": "I trust that my relationships grow deeper with every honest conversation I have.", "categories": ["relationships"], "style": "I trust", "tone": "loving", "length": "long" },
+  { "id": 171, "text": "I trust the timing of my life.", "categories": ["mindfulness", "purpose"], "style": "I trust", "tone": "peaceful", "length": "short" },
+  { "id": 172, "text": "I trust my instincts to lead me forward.", "categories": ["confidence", "career"], "style": "I trust", "tone": "powerful", "length": "short" },
+
+  { "id": 173, "text": "I welcome abundance into my life with open hands and an open heart.", "categories": ["money", "mindfulness"], "style": "I welcome", "tone": "loving", "length": "long" },
+  { "id": 174, "text": "I welcome the support of people who want to see me thrive.", "categories": ["relationships", "confidence"], "style": "I welcome", "tone": "loving", "length": "long" },
+  { "id": 175, "text": "I welcome new creative ideas as they arise.", "categories": ["creativity"], "style": "I welcome", "tone": "energizing", "length": "short" },
+  { "id": 176, "text": "I welcome rest as an essential part of my success.", "categories": ["health", "career"], "style": "I welcome", "tone": "peaceful", "length": "short" },
+  { "id": 177, "text": "I welcome change as a sign that I am growing.", "categories": ["purpose", "mindfulness"], "style": "I welcome", "tone": "energizing", "length": "short" },
+  { "id": 178, "text": "I welcome clarity when I slow down and listen to myself.", "categories": ["mindfulness", "purpose"], "style": "I welcome", "tone": "peaceful", "length": "short" },
+
+  { "id": 179, "text": "I embrace where I am right now, knowing it is exactly where I need to be.", "categories": ["mindfulness", "purpose"], "style": "I embrace", "tone": "peaceful", "length": "long" },
+  { "id": 180, "text": "I embrace my body as it is today, with patience and without judgment.", "categories": ["health", "mindfulness"], "style": "I embrace", "tone": "loving", "length": "long" },
+  { "id": 181, "text": "I embrace the lessons that come from difficulty.", "categories": ["mindfulness", "purpose"], "style": "I embrace", "tone": "powerful", "length": "short" },
+  { "id": 182, "text": "I embrace my creativity without needing to justify it.", "categories": ["creativity", "confidence"], "style": "I embrace", "tone": "energizing", "length": "short" },
+  { "id": 183, "text": "I embrace my own pace and release the pressure to keep up with anyone else.", "categories": ["confidence", "mindfulness"], "style": "I embrace", "tone": "peaceful", "length": "long" },
+  { "id": 184, "text": "I embrace financial growth as something I am worthy of.", "categories": ["money", "confidence"], "style": "I embrace", "tone": "powerful", "length": "short" },
+
+  { "id": 185, "text": "I create space in my day for what genuinely matters to me.", "categories": ["purpose", "mindfulness"], "style": "I create", "tone": "peaceful", "length": "long" },
+  { "id": 186, "text": "I create work that reflects who I truly am.", "categories": ["career", "creativity"], "style": "I create", "tone": "powerful", "length": "short" },
+  { "id": 187, "text": "I create connections that are honest, warm, and lasting.", "categories": ["relationships"], "style": "I create", "tone": "loving", "length": "short" },
+  { "id": 188, "text": "I create a life I am genuinely proud of, one decision at a time.", "categories": ["purpose", "career"], "style": "I create", "tone": "powerful", "length": "long" },
+  { "id": 189, "text": "I create financial stability through consistent and intentional choices.", "categories": ["money", "career"], "style": "I create", "tone": "energizing", "length": "short" },
+  { "id": 190, "text": "I create from a place of curiosity rather than fear.", "categories": ["creativity", "mindfulness"], "style": "I create", "tone": "peaceful", "length": "short" },
+
+  { "id": 191, "text": "I deserve love that feels steady, safe, and real.", "categories": ["relationships", "confidence"], "style": "I deserve", "tone": "loving", "length": "short" },
+  { "id": 192, "text": "I deserve to be compensated well for the value I bring.", "categories": ["career", "money"], "style": "I deserve", "tone": "powerful", "length": "short" },
+  { "id": 193, "text": "I deserve rest without guilt or the need to earn it first.", "categories": ["health", "mindfulness"], "style": "I deserve", "tone": "loving", "length": "long" },
+  { "id": 194, "text": "I deserve to take up space in every room I walk into.", "categories": ["confidence"], "style": "I deserve", "tone": "powerful", "length": "long" },
+  { "id": 195, "text": "I deserve a career that challenges and rewards me in equal measure.", "categories": ["career", "purpose"], "style": "I deserve", "tone": "energizing", "length": "long" },
+  { "id": 196, "text": "I deserve the same compassion I give so freely to others, and I give it to myself today.", "categories": ["confidence", "relationships"], "style": "I deserve", "tone": "loving", "length": "long" },
+
+  { "id": 197, "text": "I am becoming someone I genuinely admire, and that is enough to keep going.", "categories": ["confidence", "purpose"], "style": "I am", "tone": "powerful", "length": "long" },
+  { "id": 198, "text": "I have everything I need within me to begin, and so I begin today.", "categories": ["career", "confidence"], "style": "I have", "tone": "energizing", "length": "long" },
+  { "id": 199, "text": "I choose to measure my progress by how far I have come, not by how far I still have to go.", "categories": ["mindfulness", "purpose"], "style": "I choose", "tone": "peaceful", "length": "long" },
+  { "id": 200, "text": "I attract the energy and resources I need to build the life I truly envision.", "categories": ["purpose", "money"], "style": "I attract", "tone": "powerful", "length": "long" }
 ]
