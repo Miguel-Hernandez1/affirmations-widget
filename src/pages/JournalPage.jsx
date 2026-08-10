@@ -1,5 +1,8 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import DailyJournalEntry from '../components/Journal/DailyJournalEntry'
+import { useAuth } from '../hooks/useAuth'
+import { loadJournalEntries, loadDailyEntries } from '../lib/db'
 
 const TODAY = new Date().toISOString().split('T')[0]
 
@@ -12,22 +15,23 @@ function formatEntryDate(isoDate) {
   })
 }
 
-function loadHistory() {
+function loadLocalHistory() {
   let reflections = []
   let freeEntries = []
   try {
     reflections = JSON.parse(localStorage.getItem('journal_entries') || '[]')
     freeEntries = JSON.parse(localStorage.getItem('daily_journal')   || '[]')
   } catch {}
+  return { reflections, freeEntries }
+}
 
+function buildGrouped(reflections, freeEntries) {
   const pastReflections = reflections.filter(e => e.date !== TODAY)
   const pastFree        = freeEntries.filter(e => e.date !== TODAY)
-
   const dates = [...new Set([
     ...pastReflections.map(e => e.date),
     ...pastFree.map(e => e.date),
   ])].sort().reverse()
-
   return dates.map(date => ({
     date,
     free:       pastFree.find(e => e.date === date),
@@ -36,7 +40,22 @@ function loadHistory() {
 }
 
 export default function JournalPage() {
-  const history = loadHistory()
+  const { user } = useAuth()
+  const [history, setHistory] = useState(() => {
+    const { reflections, freeEntries } = loadLocalHistory()
+    return buildGrouped(reflections, freeEntries)
+  })
+
+  useEffect(() => {
+    if (!user) return
+    Promise.all([loadJournalEntries(user.id), loadDailyEntries(user.id)]).then(
+      ([reflections, freeEntries]) => {
+        if (reflections && freeEntries) {
+          setHistory(buildGrouped(reflections, freeEntries))
+        }
+      }
+    )
+  }, [user])
 
   return (
     <div className="max-w-xl mx-auto px-6 py-16">

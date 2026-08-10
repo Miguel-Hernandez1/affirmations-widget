@@ -3,6 +3,8 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import QuizProgress from '../components/Quiz/QuizProgress'
 import QuizQuestion from '../components/Quiz/QuizQuestion'
 import { questions } from '../data'
+import { useAuth } from '../hooks/useAuth'
+import { saveProfile } from '../lib/db'
 
 const STORAGE_KEY = 'affirmation_profile'
 
@@ -23,6 +25,7 @@ function buildProfile(answers) {
 
 export default function QuizPage() {
   const navigate = useNavigate()
+  const { user } = useAuth()
   const [searchParams] = useSearchParams()
   const isRetake = searchParams.get('retake') === 'true'
   const [step, setStep] = useState(0)
@@ -49,6 +52,7 @@ export default function QuizPage() {
     }
     const profile = buildProfile(answers)
     localStorage.setItem(STORAGE_KEY, JSON.stringify(profile))
+    if (user) saveProfile(user.id, profile)
     navigate('/results')
   }
 
