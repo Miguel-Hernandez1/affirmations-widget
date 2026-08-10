@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useAuth } from '../../hooks/useAuth'
+import { saveJournalEntry } from '../../lib/db'
 
 const MOODS = ['hopeful', 'calm', 'grateful', 'energized', 'at peace']
 
@@ -13,12 +15,13 @@ function getTodayEntry() {
 }
 
 export default function JournalPrompt({ affirmation }) {
+  const { user } = useAuth()
   const [existingEntry] = useState(() => getTodayEntry())
-  const [reflection, setReflection]   = useState('')
-  const [mood, setMood]               = useState('')
-  const [saved, setSaved]             = useState(false)
+  const [reflection, setReflection] = useState('')
+  const [mood, setMood]             = useState('')
+  const [saved, setSaved]           = useState(false)
 
-  function handleSave() {
+  async function handleSave() {
     if (!reflection.trim() && !mood) return
     const today = new Date().toISOString().split('T')[0]
     const entry = {
@@ -31,6 +34,7 @@ export default function JournalPrompt({ affirmation }) {
     }
     const existing = JSON.parse(localStorage.getItem('journal_entries') || '[]')
     localStorage.setItem('journal_entries', JSON.stringify([entry, ...existing]))
+    if (user) await saveJournalEntry(user.id, entry)
     setSaved(true)
   }
 

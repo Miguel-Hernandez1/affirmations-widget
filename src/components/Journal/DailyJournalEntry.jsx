@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useAuth } from '../../hooks/useAuth'
+import { saveDailyEntry } from '../../lib/db'
 
 const TODAY = new Date().toISOString().split('T')[0]
 
@@ -12,8 +14,9 @@ function readTodayEntry() {
 }
 
 export default function DailyJournalEntry() {
-  const [entry, setEntry]       = useState(() => readTodayEntry())
-  const [body, setBody]         = useState('')
+  const { user } = useAuth()
+  const [entry, setEntry]         = useState(() => readTodayEntry())
+  const [body, setBody]           = useState('')
   const [isEditing, setIsEditing] = useState(false)
 
   function beginEdit() {
@@ -26,7 +29,7 @@ export default function DailyJournalEntry() {
     setBody('')
   }
 
-  function handleSave() {
+  async function handleSave() {
     const trimmed = body.trim()
     if (!trimmed) return
     const newEntry = { id: String(Date.now()), date: TODAY, body: trimmed }
@@ -35,6 +38,7 @@ export default function DailyJournalEntry() {
       'daily_journal',
       JSON.stringify([newEntry, ...all.filter(e => e.date !== TODAY)])
     )
+    if (user) await saveDailyEntry(user.id, newEntry)
     setEntry(newEntry)
     setIsEditing(false)
     setBody('')
