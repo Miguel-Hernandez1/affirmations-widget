@@ -1,9 +1,18 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useAuth } from '../../hooks/useAuth'
 
 export default function Header() {
-  const location = useLocation()
+  const location   = useLocation()
+  const navigate   = useNavigate()
+  const { user, signOut } = useAuth()
+
   const onAffirmation = location.pathname === '/affirmation'
   const showRetake    = onAffirmation || location.pathname === '/results'
+
+  async function handleSignOut() {
+    await signOut()
+    navigate('/', { replace: true })
+  }
 
   return (
     <header className="w-full border-b border-stone-200 bg-white/80 backdrop-blur-sm sticky top-0 z-10">
@@ -30,6 +39,21 @@ export default function Header() {
               className="text-stone-500 hover:text-stone-800 text-sm transition-colors duration-150 hover:underline underline-offset-2"
             >
               Retake quiz
+            </Link>
+          )}
+          {user ? (
+            <button
+              onClick={handleSignOut}
+              className="text-stone-400 hover:text-stone-600 text-sm transition-colors duration-150"
+            >
+              Sign out
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              className="text-stone-500 hover:text-stone-800 text-sm transition-colors duration-150"
+            >
+              Sign in
             </Link>
           )}
         </div>
