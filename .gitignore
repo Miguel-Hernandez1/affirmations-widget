@@ -12,8 +12,9 @@ dist
 dist-ssr
 *.local
 
-# Session context (local only)
+# Local development context (never commit)
 .project-context.md
+.claude/
 
 # Editor directories and files
 .vscode/*
