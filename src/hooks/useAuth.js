@@ -28,11 +28,37 @@ export function useAuth() {
     })
   }
 
+  async function signInWithPassword(email, password) {
+    if (!supabase) return { error: new Error('Supabase not configured') }
+    return supabase.auth.signInWithPassword({ email, password })
+  }
+
+  async function signUp(email, password) {
+    if (!supabase) return { error: new Error('Supabase not configured') }
+    return supabase.auth.signUp({
+      email,
+      password,
+      options: { emailRedirectTo: `${window.location.origin}/auth/callback` },
+    })
+  }
+
+  async function resetPassword(email) {
+    if (!supabase) return { error: new Error('Supabase not configured') }
+    return supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/auth/callback`,
+    })
+  }
+
+  async function updatePassword(newPassword) {
+    if (!supabase) return { error: new Error('Supabase not configured') }
+    return supabase.auth.updateUser({ password: newPassword })
+  }
+
   async function signOut() {
     if (!supabase) return
     await supabase.auth.signOut()
     setUser(null)
   }
 
-  return { user, loading, signIn, signOut }
+  return { user, loading, signIn, signInWithPassword, signUp, resetPassword, updatePassword, signOut }
 }
