@@ -20,7 +20,9 @@ export default function AuthCallbackPage() {
     }
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
-      if (event === 'SIGNED_IN' && session?.user) {
+      if (event === 'PASSWORD_RECOVERY') {
+        navigate('/reset-password', { replace: true })
+      } else if (event === 'SIGNED_IN' && session?.user) {
         if (!localStorage.getItem('supabase_migrated')) {
           await migrateLocalStorage(session.user.id)
         }

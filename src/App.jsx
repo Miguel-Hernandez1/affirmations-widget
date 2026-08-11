@@ -9,6 +9,7 @@ import WidgetPage from './pages/WidgetPage'
 import JournalPage from './pages/JournalPage'
 import LoginPage from './pages/LoginPage'
 import AuthCallbackPage from './pages/AuthCallbackPage'
+import ResetPasswordPage from './pages/ResetPasswordPage'
 
 export default function App() {
   const location = useLocation()
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="/journal"        element={<JournalPage />} />
           <Route path="/login"          element={<LoginPage />} />
           <Route path="/auth/callback"  element={<AuthCallbackPage />} />
+          <Route path="/reset-password" element={<ResetPasswordPage />} />
         </Routes>
       </main>
       <Footer />
