@@ -42,9 +42,10 @@ export async function loadJournalEntries(userId) {
 
 export async function saveDailyEntry(userId, entry) {
   if (!supabase) return
+  const { id, date, body } = entry
   await supabase
     .from('daily_journal')
-    .upsert({ ...entry, user_id: userId })
+    .upsert({ id, user_id: userId, date, body })
 }
 
 export async function loadDailyEntries(userId) {
